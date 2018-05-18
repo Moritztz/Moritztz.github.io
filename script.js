@@ -4,7 +4,8 @@ let localStream = null;
 let peer = null;
 let existingCall = null;
 
-navigator.mediaDevices.getUserMedia({ audio: true, video: { width: 3840, height: 1920 } })
+
+navigator.mediaDevices.getUserMedia({ audio: true, video: { width: { ideal: 3840 }, height: { ideal: 1920 }, frameRate: { ideal: 30, min: 15 } } })
     .then(function (stream) {
         // Success
         $('#my-video').get(0).srcObject = stream;
@@ -14,6 +15,7 @@ navigator.mediaDevices.getUserMedia({ audio: true, video: { width: 3840, height:
         console.error('mediaDevice.getUserMedia() error:', error);
         return;
     });
+
 
 peer = new Peer({
     key: '9373b614-604f-4fd5-b96a-919b20a7c24e',
