@@ -18,21 +18,33 @@
         <h2>SkyWay Video Chat</h2>
 
         <p>Your id: <span id="my-id">...</span></p>
-        <p>Share this id with others so they can call you.</p>
+        <div id="peerid-ui">
+            <button href="#" class="pure-button pure-button-secondary" type="button" id="twincam1">TwinCam1</button>
+            <button href="#" class="pure-button pure-button-secondary" type="button" id="twincam2">TwinCam2</button>
+            <br>
+            <button href="#" class="pure-button pure-button-secondary" type="button" id="user1">User1</button>
+            <button href="#" class="pure-button pure-button-secondary" type="button" id="user2">User2</button>
+            <br>
+            <button href="#" class="pure-button pure-button-secondary" type="button" id="recieve">Recieve</button>
+            <button href="#" class="pure-button pure-button-secondary" type="button" id="random">Random</button>
+        </div>
+
         <h3>Make a call</h3>
         <form id="make-call" class="pure-form">
             <input type="text" placeholder="Call user id..." id="callto-id">
             <button href="#" class="pure-button pure-button-success" type="submit">Call</button>
         </form>
-        <form id="end-call" class="pure-form">
+        <div id="end-call-ui">
             <p>Currently in call with <span id="their-id">...</span></p>
-            <button href="#" class="pure-button pure-button-success" type="submit">End Call</button>
-        </form>
-        <!--
-        <form id="4k" class="pure-form">
-            <button href="#" class="pure-button pure-button-success" type="submit">4K</button>
-        </form>
-        -->
+            <button href="#" class="pure-button pure-button-error" type="button" id="end-call">End call</button>
+        </div>
+        <div>
+            <button href="#" class="pure-button pure-button-warning" type="button" id="4K">4K</button>
+            <button href="#" class="pure-button pure-button-warning" type="button" id="FullHD">FullHD</button>
+        </div>
+        <div>
+            <button href="#" class="pure-button pure-button-error" type="button" id="reload">Reload</button>
+        </div>
     </div>
 </div>
 
