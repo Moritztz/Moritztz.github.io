@@ -6,8 +6,8 @@ let existingCall = null;
 var isReceive = false;    //受信専用かどうか
 
 //カメラ映像、マイク音声の取得
-function getmedia(w, h) {
-    navigator.mediaDevices.getUserMedia({ audio: true, video: { width: { ideal: w }, height: { ideal: h }, frameRate: { ideal: 30, min: 15 } } })
+function getmedia(video_option) {
+    navigator.mediaDevices.getUserMedia({ audio: true, video: video_option })
         .then(function (stream) {
             // Success
             $('#my-video').get(0).srcObject = stream;
@@ -21,12 +21,12 @@ function getmedia(w, h) {
 
 //4K映像を取得
 $('#4K').click(function () {
-    getmedia(3840, 1920);
+    getmedia({ width: { ideal: 3840 }, height: { ideal: 1920 }, frameRate: { ideal: 30, min: 15 } });
 });
 
 //FullHD映像を取得
 $('#FullHD').click(function () {
-    getmedia(1920, 960);
+    getmedia(true);
 });
 
 //peeridを取得
