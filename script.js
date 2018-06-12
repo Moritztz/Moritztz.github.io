@@ -4,6 +4,7 @@ var localStream = null;
 var peer = null;
 let existingCall = null;
 var isReceive = false;    //受信専用かどうか
+const VIDEO_CODEC = 'VP9';
 
 //カメラ映像、マイク音声の取得
 function getmedia(video_option) {
@@ -21,7 +22,7 @@ function getmedia(video_option) {
 
 //4K映像を取得
 $('#4K').click(function () {
-    getmedia({ width: { ideal: 3840 }, height: { ideal: 1920 }, frameRate: { ideal: 30, min: 15 } });
+    getmedia({ width: { ideal: 3840 }, height: { ideal: 1920 }, frameRate: { ideal: 30 } });
 });
 
 //FullHD映像を取得
@@ -85,7 +86,7 @@ $('#reload').click(function () {
 $('#make-call').submit(function (e) {
     e.preventDefault();
     const call = peer.call($('#callto-id').val(), localStream, {
-        videoCodec: 'H264',
+        videoCodec: VIDEO_CODEC,
         videoReceiveEnabled: isReceive,
         audioReceiveEnabled: isReceive,
     });
@@ -124,7 +125,7 @@ function start() {
 
     //着信処理
     peer.on('call', function (call) {
-        call.answer(localStream, { videoCodec: 'H264' });
+        call.answer(localStream, { videoCodec: VIDEO_CODEC });
         setupCallEventHandlers(call);
     });
 }
