@@ -109,6 +109,7 @@ function start() {
     peer.on('error', function (err) {
         alert(err.message);
         setupMakeCallUI();
+        $('#peerid-ui').show();
     });
 
     //closeƒCƒxƒ“ƒg
